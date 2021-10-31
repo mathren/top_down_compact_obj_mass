@@ -21,22 +21,27 @@
 % Main body
 \section{Introduction}
 
-Figure~\ref{fig:fibonacci} is an example of a figure that depends on an external dataset.
+Figure~\ref{fig:fit_DM_PPI} is an example of a figure that depends on an external dataset.
 In order to tell \texttt{showyourwork} about this extra dependency (and how to download it), we add a line to \texttt{showyourwork.yml}.
 
 % A sample figure generated from an external dataset
 \begin{figure}[ht!]
     \begin{centering}
-        \includegraphics[width=0.75\linewidth]{figures/fibonacci.pdf}
+        \includegraphics[width=0.75\linewidth]{figures/fit_DM_PPI.pdf}
         \caption{
             A sample figure showing the Fibonacci sequence in binary.
-            This figure was generated from a dataset hosted externally on Zenodo. 
+            This figure was generated from a dataset hosted externally on Zenodo.
             The instructions for downloading this dataset and making it an explicit dependency of this figure are specified in \texttt{showyourwork.yml}.
         }
         % This label tells showyourwork that the script `figures/fibonacci.py'
         % generates the PDF included above
-        \label{fig:fibonacci}
+        \label{fig:fit_DM_PPI}
     \end{centering}
 \end{figure}
 
 \end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

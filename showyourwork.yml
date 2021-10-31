@@ -1,10 +1,10 @@
 # Tell showyourwork that `src/figures/fibonacci.py`
 # requires the file `src/data/fibonacci.dat` to run
 dependencies:
-  src/figures/fibonacci.py:
-    - src/data/fibonacci.dat
+  src/figures/fit_DM_PPI.py:
+    - src/data/datafile1.txt
 
 # Tell showyourwork where to find ``src/data/fibonacci.dat``
 zenodo:
-  - src/data/fibonacci.dat:
-      id: 5187276
+  - src/data/datafile1.txt:
+      id: 3346592
