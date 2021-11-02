@@ -5,5 +5,5 @@ dependencies:
     - src/data/datafile1.txt
 
 zenodo:
-  src/data/datafile1.txt:
-    id: 3346593
+  -  src/data/datafile1.txt:
+      id: 3346593
