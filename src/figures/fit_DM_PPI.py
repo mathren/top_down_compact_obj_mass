@@ -104,4 +104,4 @@ if __name__ == "__main__":
     ax4.set_ylabel(r"$\Delta M_\mathrm{PPI} \ [M_\odot]$")
     ax7.set_xlabel(r"$M_\mathrm{CO} \ [M_\odot]$")
 
-    plt.savefig('./fit_DM_PPI.pdf')
+    plt.savefig('fit_DM_PPI.pdf')
