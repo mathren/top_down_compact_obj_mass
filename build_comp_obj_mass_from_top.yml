@@ -1,0 +1,9 @@
+# this is our custom showyourwork.yml
+dependencies:
+  # figure with PPISN mass loss fit
+  src/figures/fit_DM_PPI.py:
+    - src/data/datafile1.txt
+
+zenodo:
+  src/data/datafile1.txt:
+    id: 3346593

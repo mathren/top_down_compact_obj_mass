@@ -1,5 +1,5 @@
 # User config
-configfile: "showyourwork.yml"
+configfile: "build_comp_obj_mass_from_top.yml"
 
 
 # Import the showyourwork module
