@@ -21,7 +21,7 @@ def fitting_func_Z(data, a, b, c, d):
     """
     mco = data[0]
     Z = data[1]
-    return linear(np.log10(Z),a,b)*(mco-c)**3+d*(mco-c)**2
+    return linear(np.log10(Z),a,b)*(mco+c)**3+d*(mco+c)**2
 
 def get_select_datafile_range(datafile):
     """
