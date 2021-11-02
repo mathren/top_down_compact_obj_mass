@@ -74,7 +74,8 @@ if __name__ == "__main__":
     ind_for_fit = (Mco>=38) & (Mco<=60)
     popt, pcov = curve_fit(fitting_func_Z, [Mco[ind_for_fit], Z[ind_for_fit]], dMpulse[ind_for_fit])
     # print(popt)
-    fit = "$\Delta M_\mathrm{PPI} = ("+f"{popt[0]:.4f}"+r"\log_{10}(Z)+"+f"{popt[1]:.4f})"+r"\times (M_\mathrm{CO}+"+f"{popt[2]:.1f}"+")^3"+f"{popt[3]:.4f}"+r"\times (M_\mathrm{CO}+"+f"{popt[2]:.1f}"+")^2$"
+    # fit = "$\Delta M_\mathrm{PPI} = ("+f"{popt[0]:.4f}"+r"\log_{10}(Z)+"+f"{popt[1]:.4f})"+r"\times (M_\mathrm{CO}+"+f"{popt[2]:.1f}"+")^3"+f"{popt[3]:.4f}"+r"\times (M_\mathrm{CO}+"+f"{popt[2]:.1f}"+")^2$"
+    fit =""
     ax1.set_title(fit, fontsize=20)
     # # --------------------------------------------------------------------------------------
 
@@ -101,7 +102,7 @@ if __name__ == "__main__":
             ax.set_xticklabels([])
 
 
-    ax4.set_ylabel(r"$\Delta M_\mathrm{PPI} \ [M_\odot]$")
-    ax7.set_xlabel(r"$M_\mathrm{CO} \ [M_\odot]$")
+    # ax4.set_ylabel(r"$\Delta M_\mathrm{PPI} \ [M_\odot]$")
+    # ax7.set_xlabel(r"$M_\mathrm{CO} \ [M_\odot]$")
 
     plt.savefig('fit_DM_PPI.pdf')
