@@ -1,21 +1,35 @@
-% Define document class
-\documentclass[twocolumn]{aastex631}
+\documentclass[twocolumn,twocolappendix,trackchanges]{aastex63}
+\usepackage{amsmath}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\mesa}{\code{MESA}}
+\newcommand{\MESA}{\code{MESA}}
+\renewcommand{\labelitemii}{$\bullet$}
+\newcommand{\kms}{{\mathrm{km\ s^{-1}}}}
+\newcommand{\kev}{\mathrm{keV}}
+\newcommand{\gk}{\ensuremath{\,\rm{GK}}}
+\usepackage{CJK}
+\DeclareRobustCommand{\Eqref}[1]{Eq.~\ref{#1}}
+\DeclareRobustCommand{\Figref}[1]{Fig.~\ref{#1}}
+\DeclareRobustCommand{\Tabref}[1]{Tab.~\ref{#1}}
+\DeclareRobustCommand{\Secref}[1]{Sec.~\ref{#1}}
+\newcommand{\zoph}{$\zeta$ Oph}
 
-% Filler text
-\usepackage{blindtext}
+\newcommand{\todo}[1]{{\large $\blacksquare$~\textbf{\color{red}[#1]}}~$\blacksquare$}
 
-% Begin!
+\newcommand{\YG}[1]{{\color{blue}{YG: #1}}}
+\newcommand{\Msun}{\ensuremath{\,M_\odot}}
+\newcommand{\Lsun}{\ensuremath{\,L_\odot}}
+\newcommand{\referee}[1]{#1}
+\defcitealias{villamariz:05}{VH05}
+
+
 \begin{document}
 
-% Title
-\title{An open source scientific article}
-
-% Author list
-\author{First Author}
+\graphicspath{{./figures/}}
 
 % Abstract with filler text
 \begin{abstract}
-    \blindtext
+  stuff
 \end{abstract}
 
 % Main body
@@ -27,12 +41,10 @@ In order to tell \texttt{showyourwork} about this extra dependency (and how to d
 % A sample figure generated from an external dataset
 \begin{figure}[ht!]
     \begin{centering}
-        \includegraphics[width=0.75\linewidth]{figures/fit_DM_PPI.pdf}
-        \caption{
-            A sample figure showing the Fibonacci sequence in binary.
+        \includegraphics[width=0.75\linewidth]{fit_DM_PPI.pdf}
+        \caption{A sample figure showing the Fibonacci sequence in binary.
             This figure was generated from a dataset hosted externally on Zenodo.
-            The instructions for downloading this dataset and making it an explicit dependency of this figure are specified in \texttt{showyourwork.yml}.
-        }
+            The instructions for downloading this dataset and making it an explicit dependency of this figure are specified in \texttt{showyourwork.yml}.}
         % This label tells showyourwork that the script `figures/fibonacci.py'
         % generates the PDF included above
         \label{fig:fit_DM_PPI}

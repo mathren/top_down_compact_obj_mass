@@ -1,8 +1,6 @@
+name: DM_PPI
 channels:
   - defaults
 dependencies:
-  - numpy>=1.20
-  - pip>=20.3.3
-  - python=3.9
-  - pip:
-      - matplotlib>=3.3.3
+  - scipy
+  - matplotlib
