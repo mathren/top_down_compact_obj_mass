@@ -7,10 +7,10 @@
 <a href="https://github.com/mathren/top_down_compact_obj_mass/actions/workflows/showyourwork.yml">
 <img src="https://github.com/mathren/top_down_compact_obj_mass/actions/workflows/showyourwork.yml/badge.svg" alt="Article status"/>
 </a>
-<a href="https://github.com/mathren/top_down_compact_obj_mass/raw/fit_ppisn-pdf/arxiv.tar.gz">
+<a href="https://github.com/mathren/top_down_compact_obj_mass/raw/ppisn_fit-pdf/arxiv.tar.gz">
 <img src="https://img.shields.io/badge/article-tarball-blue.svg?style=flat" alt="Article tarball"/>
 </a>
-<a href="https://github.com/mathren/top_down_compact_obj_mass/raw/fit_ppisn-pdf/dag.pdf">
+<a href="https://github.com/mathren/top_down_compact_obj_mass/raw/ppisn_fit-pdf/dag.pdf">
 <img src="https://img.shields.io/badge/article-dag-blue.svg?style=flat" alt="Article graph"/>
 </a>
 <a href="https://github.com/mathren/top_down_compact_obj_mass/raw/fit_ppisn-pdf/ms.pdf">
