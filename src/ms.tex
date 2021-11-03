@@ -26,16 +26,17 @@
 \end{abstract}
 
 \section*{}
+
 Stellar and binary population synthesis calculations are a necessary
 tool to predict event rates and population statistics of astrophysical
 phenomena involving compact objects (especially neutron stars and
 black holes). Typically, at the end of the evolution (carbon
 depletion) the core mass is mapped to a compact object mass, using an
-$M_\mathrm{comp.\ obj}\equiv M_\mathrm{comp.\ obj}(M_\mathrm{core})$
+% $M_\mathrm{comp. obj}\equiv M_\mathrm{comp.\ obj}(M_\mathrm{core})$
 informed by core-collapse simulations (e.g., \citealt{fryer:12,
-  spera:15, mandel:20, couch:20}, see also \citealt{zapartas:21}) and/or (pulsational) pair instability simulations
-(e.g., \citealt{stevenson:19, marchant:19, farmer:19}). \todo{cite
-  mapelli}
+  spera:15, mandel:20, couch:20}, see also \citealt{zapartas:21, patton:21}) and/or (pulsational) pair instability simulations
+(e.g., \citealt{belczynski:16, woosley:17, stevenson:19, marchant:19, farmer:19}). \todo{cite
+  mapelli's groups}
 
 For carbon-oxygen core masses of $\sim{}35\,M_\odot$, corresponding
 roughly to the transition between core-collapse and pulsational
@@ -43,20 +44,56 @@ pair-instability, a mismatch between the fitting formulate can
 introduce artificial features which presently impair the
 interpretation of gravitational wave data \citep[see e.g. the
 corresponding feature in Fig.~5 of][]{vanson:21}.
-While
+
+\todo{discontinuity can be real -- cite Renzo 2020 and Mapelli's
+  merger. We plan to study it in a separate paper (Hendriks et al., in
+  prep).}\\
+
+\todo{The most common algorithm are from Fryer+12, where the compact
+  object mass if build from a proto-NS mass adding fallback (bottom-up).}\\
+\todo{pop. synth. knows total masses, while core masses are poorly
+  characterized (e.g., lacking composition informaton,
+  \citealt{patton:20}). While counterintuitive to core-collapse
+  theorists, it is easier to build the compact object core mass from
+  the total mass at pre-collapse minus all the SN mass loss term
+  (top-down):}\\
+
+\begin{equation}
+  \label{eq:mass}
+  M_\mathrm{comp.\ obj} = M_\mathrm{pre-CC} - \left(\Delta M_\mathrm{SN} + \Delta M_\mathrm{NLW} + \Delta M_\mathrm{PPI} + \Delta M_{\nu, \mathrm{core}} +\Delta M_\mathrm{lGRB} + \cdots \right)
+\end{equation}
+
+\todo{each term can be a function of stellar parameters known to the
+  pop. synth.}\\
+
+\todo{No refitting $\Delta M_\mathrm{SN}$ needed, and can be
+  generalized to empirically informed SN-ejecta distribution mass --
+  give ref}\\
+
+\todo{list other mechanism with refs}\\
+
+\todo{We present here a fitting formula that imposes continuity by
+  substituting the fit to Farmer+19 -- instead of fitting the BH mass
+  we fit what MESA actually calculates, which is the amount of mass
+  lost.}
 
 % A sample figure generated from an external dataset
 \begin{figure}[ht!]
     \begin{centering}
       \includegraphics[width=0.75\linewidth]{figures/fit_DM_PPI.pdf}
-        \caption{figure \texttt{showyourwork.yml}.}
+        \caption{figure }
         % This label tells showyourwork that the script `figures/fit_DM_PPI.py'
         % generates the PDF included above
         \label{fig:fit_DM_PPI}
     \end{centering}
 \end{figure}
 
-\bibliographystyle{aasjournal}
+\todo{this formula neglects the (weak) Z-dependence of the minimum CO
+  core mass for PPISN (Farmer+19), and cannot be directly physically
+  interpreted because of the artificially imposed conditions.}
+
+\todo{fix bibtex arxiv entries}
+% \bibliographystyle{aasjournal}
 \bibliography{./bib.bib}
 
 
