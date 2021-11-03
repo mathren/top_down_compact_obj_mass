@@ -272,7 +272,7 @@ text.usetex         : False    ## use latex for all text handling. The following
 #mathtext.it  : sans:italic
 #mathtext.bf  : sans:bold
 #mathtext.sf  : sans
-#mathtext.fontset : dejavusans ## Should be 'dejavusans' (default),
+mathtext.fontset : cm #dejavusans ## Should be 'dejavusans' (default),
                                ## 'dejavuserif', 'cm' (Computer Modern), 'stix',
                                ## 'stixsans' or 'custom'
 #mathtext.fallback_to_cm : True  ## When True, use symbols from the Computer Modern
