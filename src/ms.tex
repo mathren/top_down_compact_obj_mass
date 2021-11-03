@@ -1,26 +1,49 @@
 % Define document class
 \documentclass[twocolumn]{aastex63}
+\DeclareRobustCommand{\Eqref}[1]{Eq.~\ref{#1}}
+\DeclareRobustCommand{\Figref}[1]{Fig.~\ref{#1}}
+\DeclareRobustCommand{\Tabref}[1]{Tab.~\ref{#1}}
+\DeclareRobustCommand{\Secref}[1]{Sec.~\ref{#1}}
+\newcommand{\todo}[1]{{\large $\blacksquare$~\textbf{\color{red}[#1]}}~$\blacksquare$}
 
-% Filler text
-\usepackage{blindtext}
-
-% Begin!
 \begin{document}
 
-
 % Title
-\title{An open source scientific article}
+\title{Top-down compact object masses for population synthesis}
 
 % Author list
-\author{First Author}
+% \author{M. Renzo}
 
-% Abstract with filler text
 \begin{abstract}
-    \blindtext
+  Stellar (binary) population synthesis codes use semi-analytic
+  formulae to determine masses of compact objects from the (helium or
+  carbon-oxygen) core masses of collapsing stars. We propose a
+  different implementation compatible with the existing approach which
+  imposes by construction continuity across the
+  core-collapse/pair-instability range -- to prevent artificial
+  artifact -- and is easily extendable to other supernova mass loss
+  mechanisms.
 \end{abstract}
 
-% Main body with filler text
-\section{Introduction}
+\section*{}
+Stellar and binary population synthesis calculations are a necessary
+tool to predict event rates and population statistics of astrophysical
+phenomena involving compact objects (especially neutron stars and
+black holes). Typically, at the end of the evolution (carbon
+depletion) the core mass is mapped to a compact object mass, using an
+$M_\mathrm{comp.\ obj}\equiv M_\mathrm{comp.\ obj}(M_\mathrm{core})$
+informed by core-collapse simulations (e.g., \citealt{fryer:12,
+  spera:15, mandel:20, couch:20}, see also \citealt{zapartas:21}) and/or (pulsational) pair instability simulations
+(e.g., \citealt{stevenson:19, marchant:19, farmer:19}). \todo{cite
+  mapelli}
+
+For carbon-oxygen core masses of $\sim{}35\,M_\odot$, corresponding
+roughly to the transition between core-collapse and pulsational
+pair-instability, a mismatch between the fitting formulate can
+introduce artificial features which presently impair the
+interpretation of gravitational wave data \citep[see e.g. the
+corresponding feature in Fig.~5 of][]{vanson:21}.
+While
 
 % A sample figure generated from an external dataset
 \begin{figure}[ht!]
@@ -32,6 +55,11 @@
         \label{fig:fit_DM_PPI}
     \end{centering}
 \end{figure}
+
+\bibliographystyle{aasjournal}
+\bibliography{./bib.bib}
+
+
 
 \end{document}
 
