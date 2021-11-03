@@ -10,7 +10,6 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 
-
 def linear(x, a, b):
     return a*x+b
 
@@ -43,6 +42,7 @@ def get_select_datafile_range(datafile):
     return src, col
 
 if __name__ == "__main__":
+
     # this gets downloaded from zenodo by showyourwork
     datafile = "../data/datafile1.txt"
     src, col = get_select_datafile_range(datafile)
@@ -74,7 +74,7 @@ if __name__ == "__main__":
     ind_for_fit = (Mco>=38) & (Mco<=60)
     popt, pcov = curve_fit(fitting_func_Z, [Mco[ind_for_fit], Z[ind_for_fit]], dMpulse[ind_for_fit])
     # print(popt)
-    fit = "$\Delta M_\mathrm{PPI} = ("+f"{popt[0]:.4f}"+r"\log_{10}(Z)+"+f"{popt[1]:.4f})"+r"\times (M_\mathrm{CO}+"+f"{popt[2]:.1f}"+")^3"+f"{popt[3]:.4f}"+r"\times (M_\mathrm{CO}+"+f"{popt[2]:.1f}"+")^2$"
+    fit = r"$\Delta M_\mathrm{PPI} = ("+f"{popt[0]:.4f}"+r"\log_{10}(Z)+"+f"{popt[1]:.4f})"+r"\times (M_\mathrm{CO}+"+f"{popt[2]:.1f}"+")^3"+f"{popt[3]:.4f}"+r"\times (M_\mathrm{CO}+"+f"{popt[2]:.1f}"+")^2$"
     ax1.set_title(fit, fontsize=20)
     # # --------------------------------------------------------------------------------------
 
