@@ -275,10 +275,10 @@ text.usetex         : False    ## use latex for all text handling. The following
 mathtext.fontset : cm #dejavusans ## Should be 'dejavusans' (default),
                                ## 'dejavuserif', 'cm' (Computer Modern), 'stix',
                                ## 'stixsans' or 'custom'
-#mathtext.fallback_to_cm : True  ## When True, use symbols from the Computer Modern
+# mathtext.fallback_to_cm : True  ## When True, use symbols from the Computer Modern
                                  ## fonts when a symbol can not be found in one of
                                  ## the custom math fonts.
-mathtext.default : sf  ## The default font to use for math.
+mathtext.default : regular  ## The default font to use for math.
                        ## Can be any of the LaTeX font names, including
                        ## the special name "regular" for the same font
                        ## used in regular text.
