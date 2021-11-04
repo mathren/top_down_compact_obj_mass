@@ -14,3 +14,6 @@ notebooks/.ipynb_checkpoints/*
 #
 *~
 *.tar.gz
+
+# do not commit datafile
+src/data/datafile1.txt
