@@ -7,3 +7,10 @@ report.html
 arxiv.tar.gz
 ms.pdf
 dag.pdf
+
+# python stuff
+notebooks/.ipynb_checkpoints/*
+
+#
+*~
+*.tar.gz
