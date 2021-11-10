@@ -1,4 +1,7 @@
 # this is our custom showyourwork.yml
+ms:
+  src/top_down_DM_PPI.tex
+
 dependencies:
   # figure with PPISN mass loss fit
   src/figures/fit_DM_PPI.py:
