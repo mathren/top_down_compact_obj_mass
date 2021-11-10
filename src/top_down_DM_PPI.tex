@@ -5,6 +5,8 @@
 \DeclareRobustCommand{\Tabref}[1]{Tab.~\ref{#1}}
 \DeclareRobustCommand{\Secref}[1]{Sec.~\ref{#1}}
 \newcommand{\todo}[1]{{\large $\blacksquare$~\textbf{\color{red}[#1]}}~$\blacksquare$}
+% \usepackage{cuted}
+\usepackage{flushend}
 
 \graphicspath{{./figures/}}
 
@@ -17,90 +19,142 @@
 % \author{M. Renzo}
 
 \begin{abstract}
-  Stellar (binary) population synthesis codes use semi-analytic
-  formulae to determine masses of compact objects from the (helium or
-  carbon-oxygen) core masses of collapsing stars. We propose a
-  different implementation compatible with the existing approach which
-  imposes by construction continuity across the
-  core-collapse/pair-instability range -- to prevent artificial
-  artifact -- and is easily extendable to other supernova mass loss
-  mechanisms.
+  Population synthesis relies on semi-analytic formulae to determine
+  masses of compact objects from the (helium or carbon-oxygen) core
+  masses of collapsing stars. We propose a different implementation
+  compatible with the existing approach which imposes by construction
+  continuity across the core-collapse/pair-instability range -- to
+  prevent artificial artifact -- and is easily extendable to other
+  supernova mass loss mechanisms.
 \end{abstract}
 
-\section*{}
-\todo{edit all at wish. Look also in the readme}
-Stellar and binary population synthesis calculations are a necessary
-tool to predict event rates and population statistics of astrophysical
-phenomena involving compact objects (especially neutron stars and
-black holes). Typically, at the end of the evolution (carbon
-depletion) the core mass is mapped to a compact object mass, using an
-% $M_\mathrm{comp. obj}\equiv M_\mathrm{comp.\ obj}(M_\mathrm{core})$
+\section{Introduction}
+
+Stellar and binary population synthesis calculations are necessary to
+predict event rates and population statistics of astrophysical
+phenomena involving neutron stars (NS) and
+black holes (BH). Typically, at the end of the evolution (carbon
+depletion) the core mass is mapped to a compact object mass, using a
+$M_\mathrm{comp.\ obj}\equiv M_\mathrm{comp.\ obj}(M_\mathrm{core})$
 informed by core-collapse simulations (e.g., \citealt{fryer:12,
   spera:15, mandel:20, couch:20}, see also \citealt{zapartas:21, patton:21}) and/or (pulsational) pair instability simulations
 (e.g., \citealt{belczynski:16, woosley:17, stevenson:19, marchant:19, farmer:19}). \todo{cite
   mapelli's groups}
 
 For carbon-oxygen core masses of $\sim{}35\,M_\odot$, corresponding
-roughly to the transition between core-collapse and pulsational
-pair-instability, a mismatch between the fitting formulate can
+roughly to the transition between core-collapse (CC) and pulsational
+pair-instability (PPI), a mismatch between the fitting formulate can
 introduce artificial features which presently impair the
 interpretation of gravitational wave data \citep[see e.g. the
 corresponding feature in Fig.~5 of][]{vanson:21}.
 
-\todo{discontinuity can be real -- cite Renzo 2020 and Mapelli's
-  merger. We plan to study it in a separate paper (Hendriks et al., in
-  prep).}\\
+While it is possible that the BH mass function is discontinuous at the
+lowest end of the PPI regime (e.g., \citealt{renzo:20conv,costa:21},
+Hendriks et al., in prep.), the location and amplitude of a putative
+discontinuity should not be governed by a mismatch between adopted
+fitting formulae to different models.
 
-\todo{The most common algorithm are from Fryer+12, where the compact
-  object mass if build from a proto-NS mass adding fallback (bottom-up).}\\
-\todo{pop. synth. knows total masses, while core masses are poorly
-  characterized (e.g., lacking composition informaton,
-  \citealt{patton:20}). While counterintuitive to core-collapse
-  theorists, it is easier to build the compact object core mass from
-  the total mass at pre-collapse minus all the SN mass loss term
-  (top-down):}\\
+The most commonly adopted algorithms to obtain compact object masses
+are the ``rapid'' and ``delayed'' prescriptions from
+\cite{fryer:12}. In both cases, the compact object is built
+``bottom-up'', from a proto-NS mass adding the amount of fallback
+expected in the (possibly failed) explosion. However, the proto-NS
+mass, and the information about the core structure relevant to decide
+the fallback are usually not available in population synthesis
+\citep[e.g.,][]{patton:20} -- conversely the total mass of the star is
+arguably better known.
 
-\begin{equation}
-  \label{eq:mass}
-  M_\mathrm{comp.\ obj} = M_\mathrm{pre-CC} - \left(\Delta M_\mathrm{SN} + \Delta M_\mathrm{NLW} + \Delta M_\mathrm{PPI} + \Delta M_{\nu, \mathrm{core}} +\Delta M_\mathrm{lGRB} + \cdots \right)
-\end{equation}
+\section{Top-down compact object masses}
 
-\todo{each term can be a function of stellar parameters known to the
-  pop. synth.}\\
+We propose a ``top-down'' approach to build the compact object masses
+$M_\mathrm{comp.\ obj}$, starting from the total stellar mass and
+removing the amount of mass lost because of all the processes that may
+occur at CC:
 
-\todo{No refitting $\Delta M_\mathrm{SN}$ needed, and can be
-  generalized to empirically informed SN-ejecta distribution mass --
-  give ref}\\
+% \todo{The most common algorithm are from Fryer+12, where the compact
+%   object mass if build from a proto-NS mass adding fallback (bottom-up).}\\
+% \todo{pop. synth. knows total masses, while core masses are poorly
+%   characterized (e.g., lacking composition informaton,
+%   \citealt{patton:20}). While counterintuitive to core-collapse
+%   theorists, it is easier to build the compact object core mass from
+%   the total mass at pre-collapse minus all the SN mass loss term
+%   (top-down):}\\
 
-\todo{list other mechanism with refs}\\
+\begin{widetext}
+  \begin{equation}
+    \label{eq:mass}
+    M_\mathrm{comp.\ obj} = M_\mathrm{pre-CC} - \left(\Delta M_\mathrm{SN} + \Delta M_{\nu, \mathrm{core}} + \Delta M_\mathrm{NLW} + \Delta M_\mathrm{PPI} + \cdots \right)
+  \end{equation}
+\end{widetext}
 
-\todo{We present here a fitting formula that imposes continuity by
-  substituting the fit to Farmer+19 -- instead of fitting the BH mass
-  we fit what MESA actually calculates, which is the amount of mass
-  lost.}
+where $M_\mathrm{pre-CC}$ is the total mass at the onset of core
+collapse, and each term in the parenthesis correspond to a potential
+mass loss mechanism: $\Delta M_\mathrm{SN}$ for the SN ejecta,
+$\Delta M_{\nu, \mathrm{core}}$ the change in gravitational mass of
+the core due to the neutrino losses, $\Delta M_\mathrm{NLW}$ the
+\cite{nadhezin:80, lovegrove:13} loss of the envelope due to
+$\Delta M_{\nu, \mathrm{core}}$, $\Delta M_\mathrm{PPI}$ the
+pulsational mass loss due to pair-instability. Each term can be a
+function of the stellar or binary properties, and it is easy to add
+more mass loss mechanism.
 
-% A sample figure generated from an external dataset
+Below the PPI-regime, the previous approach can be recovered by
+setting
+$\Delta M_\mathrm{SN} + \Delta M_{\nu, \mathrm{core}} = M_\mathrm{pre-CC} - M_\mathrm{comp.\ obj}^\mathrm{Fryer+12}$,
+where the last term is the compact object mass predicted by
+\cite{fryer:12} and ignoring other mass loss terms. With upcoming
+large supernova dataset, $\Delta M_\mathrm{SN}$ could be updated with
+observationally informed SN ejecta mass distributions.
+
+\section{New fit for PPI ejecta}
+
+With the top-down approach of \Eqref{eq:mass}, imposing that
+$\Delta M_\mathrm{PPI}=0$ at the edge of the PPI regime,
+\Eqref{eq:mass} produces by construction a smooth BH mass
+distribution. We fit the metallicity-dependent naked helium core PPI
+simulations of \cite{farmer:19} to obtain
+$\Delta M_\mathrm{PPI} \equiv \Delta M_\mathrm{PPI}(M_\mathrm{CO})$ as
+a function of the carbon-oxygen core mass. While the fit of
+\cite{farmer:19} provides the remaining mass after PPI, this is only
+an estimate of the BH mass because of other mass loss processes that
+might occurr \citep[e.g.,][]{renzo:20csm, powell:21}. Our approach
+fits the mass removed by PPI only, which is what was actually computed
+in \cite{farmer:19}.
+
+The dashed curves in each panel of \Figref{fig:fit_DM_PPI} shows the fit
+\input{fit_DM_PPI.tex} %% generated by src/figures/fit_DM_PPI.py
+for a given metallicity. We neglect the
+(weak) metallicity dependence of the minimum core mass for PPI, and
+we fit the data for initial He core masses between $38--60\,M_\odot$.
+We emphasize that \cite{farmer:19} only simulated
+helium cores, and with a similar setup \cite{renzo:20csm} showed that
+in the case of an H-rich envelope still present at the onset of
+pulsation, this is easily removed: to the  $\Delta M_\mathrm{PPI}$
+provided here one should add the entire H-rich envelope too.
+
+The amount of mass lost in PPI is sensitive to convection
+\cite{renzo:20conv} and nuclear reaction rates \cite{farmer:19,
+  farmer:20, costa:21, woosley:21, mehta:21}, which overall introduce
+up to $\sim{}20\%$ uncertainties on the maximum BH mass. The accuracy
+of our fit is comparable to these uncertainties.
+
 \begin{figure}[ht!]
     \begin{centering}
-      % \includegraphics[width=0.75\linewidth]{figures/fit_DM_PPI.pdf}
       \includegraphics[width=0.75\linewidth]{fit_DM_PPI.pdf}
-        \caption{figure }
+      \caption{Each panel show our fitting formula \Eqref{eq:fit} for
+        the amount of PPI mass loss as a function of carbon-oxygen
+        core mass at each metallicity $Z$ computed in
+        \cite{farmer:19}. The crosses show the values from Tab.~1
+        \cite{farmer:19}.}
         % This label tells showyourwork that the script `figures/fit_DM_PPI.py'
         % generates the PDF included above
         \label{fig:fit_DM_PPI}
     \end{centering}
 \end{figure}
 
-\todo{this formula neglects the (weak) Z-dependence of the minimum CO
-  core mass for PPISN (Farmer+19), and cannot be directly physically
-  interpreted because of the artificially imposed conditions.}
-
 \todo{fix bibtex arxiv entries}
 % \bibliographystyle{aasjournal}
 \bibliography{./bib.bib}
-
-
-
 \end{document}
 
 %%% Local Variables:

@@ -3,9 +3,13 @@ ms:
   src/top_down_DM_PPI.tex
 
 dependencies:
+  # fitting formula in tex
+  - src/top_down_DM_PPI.tex:
+    - src/fit_DM_PPI.tex
   # figure with PPISN mass loss fit
   src/figures/fit_DM_PPI.py:
     - src/data/datafile1.txt
+
 
 zenodo:
   -  src/data/datafile1.txt:
