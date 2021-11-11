@@ -85,10 +85,6 @@ might be under-resolved and that can impact the BH masses
 predicted. This introduces an uncertainty in the maximum black hole
 mass below the pair-instability gap of `\sim{}20\%`, comparable to the
 accuracy of our fit.
-	
-## Fit to Farmer et al. 2019 pulsational pair instability mass loss
-
-<img width = "450" src="" alt="fit"/>
 
 
 
