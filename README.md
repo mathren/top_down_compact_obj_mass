@@ -64,7 +64,7 @@ quantities for each term here if they are available.
 If one (or more) of these terms have a stochastic component, this can
 naturally produce the scatter in compact object masses expected
 because of the stochasticity in supernova explosions (e.g., [Mandel&
-Mueller 2020](https://ui.adsabs.harvard.edu/abs/2020MNRAS.499.3214M/abstract).
+Mueller 2020](https://ui.adsabs.harvard.edu/abs/2020MNRAS.499.3214M/abstract)).
 
 ## Reproducibility
 
@@ -75,7 +75,8 @@ through [showyourwork](https://github.com/rodluger/showyourwork).
 The data from Table 1 in [Farmer et
 al. 2019](https://ui.adsabs.harvard.edu/abs/2019ApJ...887...53F/abstract)
 are automatically downloaded from
-[zenodo](https://zenodo.org/record/3346593).
+[zenodo (see datafile1.txt)](https://zenodo.org/record/3346593) and
+cleaned by the script.
 
 
 ## Caveat
