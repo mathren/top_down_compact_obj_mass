@@ -10,9 +10,9 @@
 <a href="https://github.com/mathren/top_down_compact_obj_mass/raw/ppisn_fit-pdf/arxiv.tar.gz">
 <img src="https://img.shields.io/badge/article-tarball-blue.svg?style=flat" alt="Article tarball"/>
 </a>
-<a href="https://github.com/mathren/top_down_compact_obj_mass/raw/ppisn_fit-pdf/dag.pdf">
-<img src="https://img.shields.io/badge/article-dag-blue.svg?style=flat" alt="Article graph"/>
-</a>
+<!-- <a href="https://github.com/mathren/top_down_compact_obj_mass/raw/ppisn_fit-pdf/dag.pdf"> -->
+<!-- <img src="https://img.shields.io/badge/article-dag-blue.svg?style=flat" alt="Article graph"/> -->
+<!-- </a> -->
 <a href="https://github.com/mathren/top_down_compact_obj_mass/raw/ppisn_fit-pdf/ms.pdf">
 <img src="https://img.shields.io/badge/article-pdf-blue.svg?style=flat" alt="Read the article"/>
 </a>
