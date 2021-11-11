@@ -18,7 +18,7 @@
 </a>
 </p>
 
-# Building compact object masses top-down
+# Pair-instability mass loss for top-down compact object masses calculations
 
 Source and code associated to the research note [arXiv](link) created
 with [showyourwork](https://github.com/rodluger/showyourwork).
@@ -27,7 +27,7 @@ with [showyourwork](https://github.com/rodluger/showyourwork).
 Click on the rightmost badge at the top to take you to the compiled
 article PDF.
 
-##  Fit for the amount of mass loss at core-collapse supernova
+# Top-down approach to building compact object masses
 
 We want to develop a new mapping between star (and core) mass and
 compact object remnant for rapid population synthesis calculations.
@@ -66,7 +66,7 @@ naturally produce the scatter in compact object masses expected
 because of the stochasticity in supernova explosions (e.g., [Mandel&
 Mueller 2020](https://ui.adsabs.harvard.edu/abs/2020MNRAS.499.3214M/abstract)).
 
-## Reproducibility
+## Reproducible fit to PPI mass loss
 
 The script `src/figures/fit_DM_PPI.py` generates the fitting formula,
 its tex expression, and the figure in the research note automatically
@@ -78,6 +78,7 @@ are automatically downloaded from
 [zenodo (see datafile1.txt)](https://zenodo.org/record/3346593) and
 cleaned by the script.
 
+See `src/ms.pdf` for more information.
 
 ## Caveat
 
