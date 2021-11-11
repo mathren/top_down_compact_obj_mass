@@ -13,7 +13,8 @@
 \begin{document}
 
 % Title
-\title{Top-down compact object masses for population synthesis}
+\title{Pair-instability mass loss for top-down compact object masses
+  calculations}
 
 % Author list
 % \author{M. Renzo}
@@ -21,11 +22,18 @@
 \begin{abstract}
   Population synthesis relies on semi-analytic formulae to determine
   masses of compact objects from the (helium or carbon-oxygen) core
-  masses of collapsing stars. We propose a different implementation
-  compatible with the existing approach which imposes by construction
-  continuity across the core-collapse/pair-instability range -- to
-  prevent artificial artifact -- and is easily extendable to other
-  supernova mass loss mechanisms.
+  masses of collapsing stars. These are usually stitched together
+  across different regimes, possibly introducing artificial features
+  in the compact object mass function that impair the interpretation
+  of gravitational wave data. We propose a different ``top-down''
+  implementation where we remove mass from the star for each
+  mechanism, instead of directly relying on the fallback to get the
+  compact object mass. Our approach can recover the existing
+  implementation, while allowing continuity across the
+  core-collapse/pulsational-pair-instability regime. It can be extended
+  to other mass-loss mechanisms associated to the final collapse.\\
+
+  \todo{show to Rob Farmer and invite?}
 \end{abstract}
 
 \section{Introduction}
@@ -36,33 +44,36 @@ phenomena involving neutron stars (NS) and
 black holes (BH). Typically, at the end of the evolution (carbon
 depletion) the core mass is mapped to a compact object mass, using a
 $M_\mathrm{comp.\ obj}\equiv M_\mathrm{comp.\ obj}(M_\mathrm{core})$
-informed by core-collapse simulations (e.g., \citealt{fryer:12,
+informed by core-collapse (CC) simulations (e.g., \citealt{fryer:12,
   spera:15, mandel:20, couch:20}, see also \citealt{zapartas:21, patton:21}) and/or (pulsational) pair instability simulations
 (e.g., \citealt{belczynski:16, woosley:17, stevenson:19, marchant:19, farmer:19}). \todo{cite
   mapelli's groups}
 
-For carbon-oxygen core masses of $\sim{}35\,M_\odot$, corresponding
-roughly to the transition between core-collapse (CC) and pulsational
-pair-instability (PPI), a mismatch between the fitting formulate can
-introduce artificial features which presently impair the
-interpretation of gravitational wave data \citep[see e.g. the
-corresponding feature in Fig.~5 of][]{vanson:21}.
-
-While it is possible that the BH mass function is discontinuous at the
-lowest end of the PPI regime (e.g., \citealt{renzo:20conv,costa:21},
-Hendriks et al., in prep.), the location and amplitude of a putative
-discontinuity should not be governed by a mismatch between adopted
-fitting formulae to different models.
-
 The most commonly adopted algorithms to obtain compact object masses
-are the ``rapid'' and ``delayed'' prescriptions from
-\cite{fryer:12}. In both cases, the compact object is built
-``bottom-up'', from a proto-NS mass adding the amount of fallback
-expected in the (possibly failed) explosion. However, the proto-NS
-mass, and the information about the core structure relevant to decide
-the fallback are usually not available in population synthesis
-\citep[e.g.,][]{patton:20} -- conversely the total mass of the star is
-arguably better known.
+in the CC regime are the ``rapid'' and ``delayed''
+prescriptions from \cite{fryer:12}. In both cases, the compact object
+is built ``bottom-up'', from a proto-NS mass adding the amount of
+fallback expected in the (possibly failed) explosion. However, the
+proto-NS mass, and the information about the core structure relevant
+to decide the fallback are usually not available in population
+synthesis \citep[e.g.,][]{patton:20} -- conversely the total mass of
+the star is arguably better known. Various algorithms are used for the
+PPI regime, including \cite{belczynski:16, stevenson:19, marchant:19},
+and \cite{farmer:19}.
+
+
+At the transition between CC and pulsational
+pair-instability (PPI), roughly at carbon-oxygen cores of
+$\sim{}35\,M_\odot$ \citep[][]{woosley:17, marchant:19, renzo:20csm,
+  costa:21}, a mismatch between the fitting formulate can introduce
+artifacts which impair the interpretation of gravitational-wave data
+\citep[see, e.g., the corresponding feature in Fig.~5
+of][]{vanson:21}. While it is possible that the BH mass function is
+discontinuous at the onset of the PPI regime (e.g.,
+\citealt{renzo:20conv,costa:21}, Hendriks et al., in prep.), the
+location and amplitude of a putative discontinuity should not be
+governed by a mismatch between fitting formulae to different stellar
+evolution models.
 
 \section{Top-down compact object masses}
 
@@ -92,13 +103,13 @@ collapse, and each term in the parenthesis correspond to a potential
 mass loss mechanism: $\Delta M_\mathrm{SN}$ for the SN ejecta,
 $\Delta M_{\nu, \mathrm{core}}$ the change in gravitational mass of
 the core due to the neutrino losses, $\Delta M_\mathrm{NLW}$ the
-\cite{nadhezin:80, lovegrove:13} loss of the envelope due to
+\cite{nadezhin:80, lovegrove:13} loss of the envelope due to
 $\Delta M_{\nu, \mathrm{core}}$, $\Delta M_\mathrm{PPI}$ the
 pulsational mass loss due to pair-instability. Each term can be a
-function of the stellar or binary properties, and it is easy to add
-more mass loss mechanism.
+function of the stellar or binary properties, and more mass loss
+mechanism can be added.
 
-Below the PPI-regime, the previous approach can be recovered by
+In the CC regime ($\Delta M_\mathrm{PPI}\equiv 0, \ \Delta M_\mathrm{NLW}\equiv0$), the previous approach can be recovered by
 setting
 $\Delta M_\mathrm{SN} + \Delta M_{\nu, \mathrm{core}} = M_\mathrm{pre-CC} - M_\mathrm{comp.\ obj}^\mathrm{Fryer+12}$,
 where the last term is the compact object mass predicted by
@@ -118,19 +129,21 @@ a function of the carbon-oxygen core mass. While the fit of
 \cite{farmer:19} provides the remaining mass after PPI, this is only
 an estimate of the BH mass because of other mass loss processes that
 might occurr \citep[e.g.,][]{renzo:20csm, powell:21}. Our approach
-fits the mass removed by PPI only, which is what was actually computed
+fits the mass removed by PPI only, which is what is actually computed
 in \cite{farmer:19}.
 
-The dashed curves in each panel of \Figref{fig:fit_DM_PPI} shows the fit
 \input{fit_DM_PPI.tex} %% generated by src/figures/fit_DM_PPI.py
-for a given metallicity. We neglect the
-(weak) metallicity dependence of the minimum core mass for PPI, and
-we fit the data for initial He core masses between $38--60\,M_\odot$.
-We emphasize that \cite{farmer:19} only simulated
-helium cores, and with a similar setup \cite{renzo:20csm} showed that
-in the case of an H-rich envelope still present at the onset of
-pulsation, this is easily removed: to the  $\Delta M_\mathrm{PPI}$
-provided here one should add the entire H-rich envelope too.
+
+The dashed curves in each panel of \Figref{fig:fit_DM_PPI} shows the
+fit \Eqref{eq:fit} for each metallicity computed in
+\cite{farmer:19}. We neglect the (weak) metallicity dependence of the
+minimum core mass for PPI, and we fit the data for initial He core
+masses between $38-60\,M_\odot$.  We emphasize that \cite{farmer:19}
+only simulated helium cores, and with a similar setup
+\cite{renzo:20csm} showed that in the case of an H-rich envelope still
+present at the onset of pulsation, this is easily removed: to the
+$\Delta M_\mathrm{PPI}$ provided here one should add the entire H-rich
+envelope if present.
 
 The amount of mass lost in PPI is sensitive to convection
 \cite{renzo:20conv} and nuclear reaction rates \cite{farmer:19,
@@ -142,7 +155,7 @@ of our fit is comparable to these uncertainties.
     \begin{centering}
       \includegraphics[width=0.75\linewidth]{fit_DM_PPI.pdf}
       \caption{Each panel show our fitting formula \Eqref{eq:fit} for
-        the amount of PPI mass loss as a function of carbon-oxygen
+        the amount of PPI mass-loss as a function of carbon-oxygen
         core mass at each metallicity $Z$ computed in
         \cite{farmer:19}. The crosses show the values from Tab.~1
         \cite{farmer:19}.}
@@ -152,9 +165,7 @@ of our fit is comparable to these uncertainties.
     \end{centering}
 \end{figure}
 
-\todo{fix bibtex arxiv entries}
-% \bibliographystyle{aasjournal}
-\bibliography{./bib.bib}
+\bibliography{./top_down_comp_obj_mass.bib}
 \end{document}
 
 %%% Local Variables:
