@@ -21,12 +21,11 @@
 # Building compact object masses top-down
 
 Source and code associated to the research note []() created with
-[https://github.com/rodluger/showyourwork](showyourwork).  Click on
+[showyourwork](https://github.com/rodluger/showyourwork).  Click on
 the rightmost badge at the top to take you to the compiled article
 PDF.
 
 ##  Fit for the amount of mass loss at core-collapse supernova
-
 
 We want to develop a new mapping between star (and core) mass and
 compact object remnant for rapid population synthesis calculations.
