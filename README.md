@@ -27,7 +27,7 @@ with [showyourwork](https://github.com/rodluger/showyourwork).
 Click on the rightmost badge at the top to take you to the compiled
 article PDF.
 
-# Top-down approach to building compact object masses
+## Top-down approach to compact object masses
 
 We want to develop a new mapping between star (and core) mass and
 compact object remnant for rapid population synthesis calculations.
@@ -66,7 +66,7 @@ naturally produce the scatter in compact object masses expected
 because of the stochasticity in supernova explosions (e.g., [Mandel&
 Mueller 2020](https://ui.adsabs.harvard.edu/abs/2020MNRAS.499.3214M/abstract)).
 
-## Reproducible fit to PPI mass loss
+### Reproducible fit to PPI mass loss
 
 The script `src/figures/fit_DM_PPI.py` generates the fitting formula,
 its tex expression, and the figure in the research note automatically
@@ -80,7 +80,7 @@ cleaned by the script.
 
 See `src/ms.pdf` for more information.
 
-## Caveat
+### Caveat
 
 Recently [Mehta et al. 2021](http://arxiv.org/abs/2105.06366) have
 produced more simulations showing the nuclear data in [Farmer et
