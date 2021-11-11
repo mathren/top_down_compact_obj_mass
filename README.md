@@ -77,19 +77,19 @@ al. 2019](https://ui.adsabs.harvard.edu/abs/2019ApJ...887...53F/abstract)
 are automatically downloaded from
 [zenodo](https://zenodo.org/record/3346593).
 
-The notebook `notebooks/fit_DM_PPI.ipynb` contains more information, including a
-new fit to the [Farmer et
+
+Recently [Mehta et al. 2021](http://arxiv.org/abs/2105.06366) have
+produced more simulations showing the nuclear data in [Farmer et
 al. 2019](https://ui.adsabs.harvard.edu/abs/2019ApJ...887...53F/abstract)
-metallicity dependent pulsational pair-instability mass loss. We note
-that recently [Mehta et al. 2021](http://arxiv.org/abs/2105.06366)
-have produced more simulations showing the nuclear data in [Farmer et
-al. 2019](https://ui.adsabs.harvard.edu/abs/2019ApJ...887...53F/abstract)
-might be under-resolved and that can impact the BH masses predicted.
+might be under-resolved and that can impact the BH masses
+predicted. This introduces an uncertainty in the maximum black hole
+mass below the pair-instability gap of `\sim{}20\%`, comparable to the
+accuracy of our fit.
 	
 ## Fit to Farmer et al. 2019 pulsational pair instability mass loss
 
+<img width = "450" src="" alt="fit"/>
 
-![fit](./src/figures/fit_DM_PPI.png "title")
 
 
 
