@@ -87,7 +87,7 @@ produced more simulations showing the nuclear data in [Farmer et
 al. 2019](https://ui.adsabs.harvard.edu/abs/2019ApJ...887...53F/abstract)
 might be under-resolved and that can impact the BH masses
 predicted. This introduces an uncertainty in the maximum black hole
-mass below the pair-instability gap of `\sim{}20\%`, comparable to the
+mass below the pair-instability gap of ~20%, comparable to the
 accuracy of our fit.
 
 
