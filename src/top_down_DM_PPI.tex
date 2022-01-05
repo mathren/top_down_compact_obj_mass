@@ -21,15 +21,17 @@
 \begin{abstract}
   Population synthesis relies on semi-analytic formulae to determine
   masses of compact objects from the (helium or carbon-oxygen) core
-  masses of collapsing stars. These are usually stitched together
-  across different regimes, possibly introducing artificial features
-  in the compact object mass function that impair the interpretation
-  of gravitational wave data. We propose a different ``top-down''
-  implementation where we remove mass from the star for each
-  mechanism, instead of directly relying on the fallback to get the
-  compact object mass. Our approach can recover the existing
+  masses of collapsing stars. These are usually combined across
+  different regimes, possibly introducing artificial features in the
+  compact object mass function. Such artifacts impair the
+  interpretation of gravitational wave data. We propose a different
+  ``top-down'' implementation where, instead of relying on the
+  fallback onto a ``proto-compact-object'' to get
+  the final mass, we remove mass from the star for
+  each possible mass-loss mechanism separately. Our approach can recover the existing
   implementation, while allowing continuity across the
-  core-collapse/pulsational-pair-instability regime. It can be extended
+  core-collapse/pulsational-pair-instability regime. It can be
+  extended
   to other mass-loss mechanisms associated to the final collapse.\\
 
   \todo{show to Rob Farmer and invite?}
@@ -45,8 +47,8 @@ depletion) the core mass is mapped to a compact object mass, using a
 $M_\mathrm{comp.\ obj}\equiv M_\mathrm{comp.\ obj}(M_\mathrm{core})$
 informed by core-collapse (CC) simulations (e.g., \citealt{fryer:12,
   spera:15, mandel:20, couch:20}, see also \citealt{zapartas:21, patton:21}) and/or (pulsational) pair instability simulations
-(e.g., \citealt{belczynski:16, woosley:17, stevenson:19, marchant:19, farmer:19}). \todo{cite
-  mapelli's groups}
+(e.g., \citealt{belczynski:16, woosley:17, spera:17, stevenson:19,
+  marchant:19, farmer:19, costa:21}).
 
 The most commonly adopted algorithms to obtain compact object masses
 in the CC regime are the ``rapid'' and ``delayed''
@@ -56,16 +58,16 @@ fallback expected in the (possibly failed) explosion. However, the
 proto-NS mass, and the information about the core structure relevant
 to decide the fallback are usually not available in population
 synthesis \citep[e.g.,][]{patton:20} -- conversely the total mass of
-the star is arguably better known. Various algorithms are used for the
-PPI regime, including \cite{belczynski:16, stevenson:19, marchant:19},
-and \cite{farmer:19}.
-
+the star is arguably better known. % Various algorithms are used for the
+% PPI regime, including \cite{belczynski:16, stevenson:19, marchant:19},
+% and \cite{farmer:19}.
 
 At the transition between CC and pulsational
-pair-instability (PPI), roughly at carbon-oxygen cores of
-$\sim{}35\,M_\odot$ \citep[][]{woosley:17, marchant:19, renzo:20csm,
-  costa:21}, a mismatch between the fitting formulate can introduce
-artifacts which impair the interpretation of gravitational-wave data
+pair-instability (PPI, roughly at carbon-oxygen cores of
+$\sim{}35\,M_\odot$, \citealt{woosley:17, marchant:19, renzo:20csm,
+  costa:21}), a mismatch between the fitting formulae caused by the
+different stellar structures underlying these algorithms can introduce
+artifacts. These impair the interpretation of gravitational-wave data
 \citep[see, e.g., the corresponding feature in Fig.~5
 of][]{vanson:21}. While it is possible that the BH mass function is
 discontinuous at the onset of the PPI regime (e.g.,
@@ -76,7 +78,8 @@ evolution models.
 
 \section{Top-down compact object masses}
 
-We propose a ``top-down'' approach to build the compact object masses
+In contrast with the state-of-the-art  ``bottom up'' approach of
+\cite{fryer:12}, we propose a ``top-down'' way to build the compact object masses
 $M_\mathrm{comp.\ obj}$, starting from the total stellar mass and
 removing the amount of mass lost because of all the processes that may
 occur at CC:
@@ -107,15 +110,16 @@ the core due to the neutrino losses, $\Delta M_\mathrm{NLW}$ the
 $\Delta M_{\nu, \mathrm{core}}$, $\Delta M_\mathrm{PPI}$ the
 pulsational mass loss due to pair-instability. Each term can be a
 function of the stellar or binary properties, and more mass loss
-mechanism can be added (e.g., disk wind).
+mechanism can be added (e.g., disk wind). Each term in parenthesis for
+\Eqref{eq:mass} can be theoretically or observationally informed
+(e.g., $\Delta M_\mathrm{SN}$ might be derived from light curves of
+large samples of observed SNe).
 
-In the CC regime ($\Delta M_\mathrm{PPI}\equiv 0, \ \Delta M_\mathrm{NLW}\equiv0$), the previous approach can be recovered by
-setting
+In the CC regime, the previous approach can be recovered by setting
 $\Delta M_\mathrm{SN} + \Delta M_{\nu, \mathrm{core}} = M_\mathrm{pre-CC} - M_\mathrm{comp.\ obj}^\mathrm{Fryer+12}$,
 where the last term is the compact object mass predicted by
-\cite{fryer:12} and ignoring other mass loss terms. With upcoming
-large supernova dataset, $\Delta M_\mathrm{SN}$ could be updated with
-observationally informed SN ejecta mass distributions.
+\cite{fryer:12} and ignoring other mass loss terms
+($\Delta M_\mathrm{PPI}\equiv 0, \ \Delta M_\mathrm{NLW}\equiv0$).
 
 \section{New fit for PPI ejecta}
 
@@ -124,17 +128,17 @@ $\Delta M_\mathrm{PPI}=0$ at the edge of the PPI regime,
 \Eqref{eq:mass} produces by construction a smooth BH mass
 distribution. We fit the metallicity-dependent naked helium core PPI
 simulations of \cite{farmer:19} to obtain
-$\Delta M_\mathrm{PPI} \equiv \Delta M_\mathrm{PPI}(M_\mathrm{CO})$ as
+$\Delta M_\mathrm{PPI} \equiv \Delta M_\mathrm{PPI}(M_\mathrm{CO},Z)$ as
 a function of the carbon-oxygen core mass. While the fit of
 \cite{farmer:19} provides the remaining mass after PPI, this is only
 an estimate of the BH mass because of other mass loss processes that
-might occurr \citep[e.g.,][]{renzo:20csm, powell:21}. Our approach
+might occurr \citep[e.g.,][]{renzo:20csm, powell:21, rahman:22}. Our approach
 fits the mass removed by PPI only, which is what is actually computed
 in \cite{farmer:19}.
 
 \input{fit_DM_PPI.tex} %% generated by src/figures/fit_DM_PPI.py
 
-The dashed curves in each panel of \Figref{fig:fit_DM_PPI} shows the
+The dashed curves in each panel of \Figref{fig:fit_DM_PPI} show the
 fit \Eqref{eq:fit} for each metallicity computed in
 \cite{farmer:19}. We neglect the (weak) metallicity dependence of the
 minimum core mass for PPI, and we fit the data for initial He core
