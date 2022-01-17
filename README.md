@@ -47,7 +47,7 @@ M_\mathrm{comp.\ obj} = M_\mathrm{pre-CC} - \left(\Delta M_\mathrm{SN} + \Delta 
 ```
 
 In this way, pre-explosion binary interactions reduce `M_\mathrm{pre-CC}`
-already (and possibly modify the core structure, [Laplace et a. 2021]()), and then each mass loss
+already (and possibly modify the core structure, [Laplace et a. 2021](https://ui.adsabs.harvard.edu/abs/2021A%26A...656A..58L/abstract)), and then each mass loss
 process at core-collapse can be added separately.  This can also be
 extended to add other mass loss mechanisms at core-collapse
 
