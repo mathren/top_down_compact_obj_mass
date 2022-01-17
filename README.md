@@ -30,10 +30,10 @@ article PDF.
 ## Top-down approach to compact object masses
 
 We want to develop a new mapping between star (and core) mass and
-compact object remnant for rapid population synthesis calculations.
+compact object remnant for population synthesis calculations.
 
 Our aim is to have one way to calculate this across the entire mass
-range (from neutron stars to above the pair-instability black hole
+range (from neutron stars to black holes above the pair-instability
 mass gap). Moreover, we want the mapping to be continuous. This is not
 because it is a priori unphysical to have discontinuities, but because
 we don't want to artificially introduce features. Free parameters can
@@ -47,7 +47,7 @@ M_\mathrm{comp.\ obj} = M_\mathrm{pre-CC} - \left(\Delta M_\mathrm{SN} + \Delta 
 ```
 
 In this way, pre-explosion binary interactions reduce `M_\mathrm{pre-CC}`
-already (and possibly modify the core masses), and then each mass loss
+already (and possibly modify the core structure, [Laplace et a. 2021]()), and then each mass loss
 process at core-collapse can be added separately.  This can also be
 extended to add other mass loss mechanisms at core-collapse
 
@@ -83,11 +83,12 @@ See `src/ms.pdf` for more information.
 ### Caveat
 
 Recently [Mehta et al. 2021](http://arxiv.org/abs/2105.06366) have
-produced more simulations showing the nuclear data in [Farmer et
+produced more simulations showing the default nuclear data tables
+adopted in [Farmer et
 al. 2019](https://ui.adsabs.harvard.edu/abs/2019ApJ...887...53F/abstract)
-might be under-resolved and that can impact the BH masses
-predicted. This introduces an uncertainty in the maximum black hole
-mass below the pair-instability gap of ~20%, comparable to the
+might be under-resolved. They showed that this can impact the BH
+masses predicted. This introduces an uncertainty in the maximum black
+hole mass below the pair-instability gap of ~20%, which is overall comparable to the
 accuracy of our fit.
 
 
