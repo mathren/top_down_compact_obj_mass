@@ -23,21 +23,22 @@
 
 \begin{abstract}
   Population synthesis relies on semi-analytic formulae to determine
-  masses of compact objects from the (helium or carbon-oxygen) core
-  of collapsing stars. These are usually combined across
-  different regimes, possibly introducing artificial features in the
-  compact object mass distribution. Such artifacts impair the
-  interpretation of gravitational-wave observations. We propose a different
-  ``top-down'' implementation where, instead of relying on the
-  fallback onto a ``proto-compact-object'' to get
-  the final mass, we remove mass from the star for
-  each possible mass-loss mechanism separately. By fitting pulsational
-  pair instability models with the constrain of no-mass loss in
-  absence of pulses, our approach can recover the existing
-  implementation, while allowing continuity across the
-  core-collapse/pulsational-pair-instability regime. It can be
+  masses of compact objects from the (helium or carbon-oxygen) core of
+  collapsing stars. Typically, such formulae are combined across mass
+  ranges that span different explosion mechanisms, possibly
+  introducing artificial features in the compact object mass
+  distribution. Such artifacts impair the interpretation of
+  gravitational-wave observations. We propose a different ``top-down''
+  remnant mass prescription where, instead of relying on the fallback
+  onto a ``proto-compact-object'' to get the final mass, we remove
+  mass from the star for each possible mass-loss mechanism. By fitting
+  pulsational pair instability models with the constrain of no-mass
+  loss in absence of pulses, our approach recovers the common
+  prescription, while allowing continuity across the
+  core-collapse/pulsational-pair-instability regime. Our remnant mass prescription can be
   extended
-  to other mass-loss mechanisms associated to the final collapse.\\
+  to other mass-loss mechanisms associated to the final collapse.
+  \\
 
   \todo{show to Rob Farmer and invite?}
 \end{abstract}
@@ -60,22 +61,21 @@ in the CC regime are the ``rapid'' and ``delayed''
 prescriptions from \cite{fryer:12}. In both cases, the compact object
 is built ``bottom-up'', from a proto-NS mass adding the amount of
 fallback expected in the (possibly failed) explosion. However, the
-proto-NS mass, and the information about the core structure relevant
+proto-NS mass, and information about the core structure relevant
 to decide the fallback are usually not available in population
 synthesis \citep[e.g.,][]{patton:20} -- conversely the total mass of
 the star is arguably better known. % Various algorithms are used for the
 % PPI regime, including \cite{belczynski:16, stevenson:19, marchant:19},
 % and \cite{farmer:19}.
 
-At the transition between CC and pulsational
-pair-instability (PPI, roughly at carbon-oxygen cores of
-$\sim{}35\,M_\odot$, \citealt{woosley:17, marchant:19, renzo:20csm,
-  costa:21}), a mismatch between the fitting formulae caused by the
-different stellar structures underlying these algorithms can introduce
-artifacts. These impair the interpretation of gravitational-wave data
-\citep[see, e.g., the corresponding feature in Fig.~5
-of][]{vanson:21}. While it is possible that the BH mass function is
-discontinuous at the onset of the PPI regime (e.g.,
+At the transition between CC and pulsational pair-instability (PPI,
+roughly at carbon-oxygen cores of $\sim{}35\,M_\odot$,
+\citealt{woosley:17, marchant:19, renzo:20csm, costa:21}), a mismatch
+between the fitting formulae caused by the different stellar
+structures underlying these algorithms can introduce artifacts. These
+impair the interpretation of gravitational-wave data \citep[as pointed
+out in Fig.~5 of][]{vanson:21}. While it is possible that the BH mass
+function is discontinuous at the onset of the PPI regime (e.g.,
 \citealt{renzo:20conv,costa:21}, Hendriks et al., in prep.), the
 location and amplitude of a putative discontinuity should not be
 governed by a mismatch between fitting formulae to different stellar
@@ -115,7 +115,7 @@ the core due to the neutrino losses, $\Delta M_\mathrm{NLW}$ the
 $\Delta M_{\nu, \mathrm{core}}$, $\Delta M_\mathrm{PPI}$ the
 pulsational mass loss due to pair-instability. Each term can be a
 function of the stellar or binary properties, and more mass loss
-mechanism can be added (e.g., disk wind). Each term in parenthesis for
+mechanisms can be added (e.g., disk winds). Each term in the parenthesis for
 \Eqref{eq:mass} can be theoretically or observationally informed
 (e.g., $\Delta M_\mathrm{SN}$ might be derived from light curves of
 large samples of observed SNe).
@@ -128,17 +128,17 @@ where the last term is the compact object mass predicted by
 
 \section{New fit for PPI ejecta}
 
-With the top-down approach of \Eqref{eq:mass}, imposing that
-$\Delta M_\mathrm{PPI}=0$ at the edge of the PPI regime,
-\Eqref{eq:mass} produces by construction a smooth BH mass
+The top-down approach of \Eqref{eq:mass}, imposing that
+$\Delta M_\mathrm{PPI}=0$ at the edge of the PPI regime
+produces by construction a smooth BH mass
 distribution. We fit the metallicity-dependent naked helium core PPI
 simulations of \cite{farmer:19} to obtain
 $\Delta M_\mathrm{PPI} \equiv \Delta M_\mathrm{PPI}(M_\mathrm{CO},Z)$ as
-a function of the carbon-oxygen core mass. While the fit of
+a function of the carbon-oxygen core mass (\Figref{fig:fit_DM_PPI}). While the fit of
 \cite{farmer:19} provides the remaining mass after PPI, this is only
 an estimate of the BH mass because of other mass loss processes that
 might occurr \citep[e.g.,][]{renzo:20csm, powell:21, rahman:22}. Our approach
-fits the mass removed by PPI only, which is what is actually computed
+fits the mass removed by PPI only, which is what is directly computed
 in \cite{farmer:19}.
 
 \input{fit_DM_PPI.tex} %% generated by src/figures/fit_DM_PPI.py
@@ -146,13 +146,13 @@ in \cite{farmer:19}.
 The dashed curves in each panel of \Figref{fig:fit_DM_PPI} show the
 fit \Eqref{eq:fit} for each metallicity computed in
 \cite{farmer:19}. We neglect the (weak) metallicity dependence of the
-minimum core mass for PPI, and we fit the data for initial He core
+minimum core mass for PPI, and we fit the publicly available data for initial He core
 masses between $38-60\,M_\odot$.  We emphasize that \cite{farmer:19}
-only simulated helium cores, and with a similar setup
-\cite{renzo:20csm} showed that in the case of an H-rich envelope still
-present at the onset of pulsation, this is easily removed: to the
-$\Delta M_\mathrm{PPI}$ provided here one should add the entire H-rich
-envelope if present.
+only simulated helium cores. In case an H-rich envelope is still
+present at the onset of pulsation, if it is extended and red, it
+is easily removed by the first pulse \citep[][]{woosley:17,renzo:20csm} and the H-rich mass should be added to the
+$\Delta M_\mathrm{PPI}$ provided here. It is unclear what occurs in
+cases when the envelope is compact and blue \cite{dicarlo:19, renzo:20merger, costa:21}.
 
 The amount of mass lost in PPI is sensitive to convection
 \cite{renzo:20conv} and nuclear reaction rates \cite{farmer:19,
