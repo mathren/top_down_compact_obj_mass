@@ -17,3 +17,6 @@ notebooks/.ipynb_checkpoints/*
 
 # do not commit datafile
 src/data/datafile1.txt
+
+# do not commit comments
+comments/*
