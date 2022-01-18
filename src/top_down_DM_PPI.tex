@@ -13,7 +13,7 @@
 \begin{document}
 
 % Title
-\title{Pair-instability mass loss for top-down compact object masses calculations}
+\title{Pair-instability mass loss for top-down compact object mass calculations}
 
 % Author list
 \author[0000-0002-6718-9472]{M.~Renzo}
@@ -28,22 +28,24 @@
 
 
 \begin{abstract}
+  \noindent
   Population synthesis relies on semi-analytic formulae to determine
   masses of compact objects from the (helium or carbon-oxygen) core of
   collapsing stars. Typically, such formulae are combined across mass
   ranges that span different explosion mechanisms, possibly
   introducing artificial features in the compact object mass
   distribution. Such artifacts impair the interpretation of
-  gravitational-wave observations. We propose a different ``top-down''
-  remnant mass prescription where, instead of relying on the fallback
-  onto a ``proto-compact-object'' to get the final mass, we remove
-  mass from the star for each possible mass-loss mechanism. By fitting
-  pulsational pair instability models with the constrain of no-mass
-  loss in absence of pulses, our approach recovers the common
-  prescription, while allowing continuity across the
-  core-collapse/pulsational-pair-instability regime. Our remnant mass prescription can be
-  extended
-  to other mass-loss mechanisms associated to the final collapse.\\
+  gravitational-wave observations. Instead of relying on the fallback
+  onto a ``proto-compact-object'' to get the final mass, we propose a
+  ``top-down'' remnant mass prescription where we remove mass from the
+  star for each possible mass-loss mechanism. For one of these, we fit
+  the metallicity-dependent mass lost to pulsational-pair instability
+  in numerical simulations. By imposing no mass loss in the absence of
+  pulses, our approach recovers the existing compact object mass
+  prescription at the low mass end, ensures continuity across the
+  core-collapse/pulsational-pair-instability regime. Our remnant mass
+  prescription can be extended
+  to other mass-loss mechanisms associated with the final collapse.\\
 \end{abstract}
 
 \section{Introduction}
@@ -55,29 +57,30 @@ black holes (BH). Typically, at the end of the evolution (carbon
 depletion) the core mass is mapped to a compact object mass, using a
 $M_\mathrm{comp.\ obj}\equiv M_\mathrm{comp.\ obj}(M_\mathrm{core})$
 informed by core-collapse (CC) simulations (e.g., \citealt{fryer:12,
-  spera:15, mandel:20, couch:20}, see also \citealt{zapartas:21, patton:21}) and/or (pulsational) pair instability simulations
+  spera:15, mandel:20, couch:20}, see also \citealt{zapartas:21,
+  patton:21}) and/or (pulsational) pair instability (PPI) simulations
 (e.g., \citealt{belczynski:16, woosley:17, spera:17, stevenson:19,
   marchant:19, farmer:19, costa:21}).
 
 The most commonly adopted algorithms to obtain compact object masses
 in the CC regime are the ``rapid'' and ``delayed''
 prescriptions from \cite{fryer:12}. In both cases, the compact object
-is built ``bottom-up'', from a proto-NS mass adding the amount of
+is built ``bottom-up'', starting from a proto-NS mass and adding the amount of
 fallback expected in the (possibly failed) explosion. However, the
 proto-NS mass, and information about the core structure relevant
 to decide the fallback are usually not available in population
-synthesis \citep[e.g.,][]{patton:20} -- conversely the total mass of
-the star is arguably better known. % Various algorithms are used for the
+synthesis \citep[e.g.,][]{patton:20} -- conversely the total final mass of
+the star is arguably easier to constrain. % Various algorithms are used for the
 % PPI regime, including \cite{belczynski:16, stevenson:19, marchant:19},
 % and \cite{farmer:19}.
 
-At the transition between CC and pulsational pair-instability (PPI,
-roughly at carbon-oxygen cores of $\sim{}35\,M_\odot$,
-\citealt{woosley:17, marchant:19, renzo:20csm, costa:21}), a mismatch
-between the fitting formulae caused by the different stellar
-structures underlying these algorithms can introduce artifacts. These
-impair the interpretation of gravitational-wave data \citep[as pointed
-out in Fig.~5 of][]{vanson:21}. While it is possible that the BH mass
+At the transition between CC and PPI (roughly at carbon-oxygen cores
+of $\sim{}35\,M_\odot$, \citealt{woosley:17, marchant:19, renzo:20csm,
+  costa:21}), a mismatch between commonly adopted fitting formulae
+exists. This are at least partly caused by differences in the stellar structures used to
+design these algorithms and impair the
+interpretation of gravitational-wave data \citep[as pointed out in
+Fig.~5 of][]{vanson:21}. While it is possible that the BH mass
 function is discontinuous at the onset of the PPI regime (e.g.,
 \citealt{renzo:20conv,costa:21}, Hendriks et al., in prep.), the
 location and amplitude of a putative discontinuity should not be
@@ -86,11 +89,11 @@ evolution models.
 
 \section{Top-down compact object masses}
 
-In contrast with the state-of-the-art  ``bottom up'' approach of
+In contrast with the  ``bottom up'' approach of
 \cite{fryer:12}, we propose a ``top-down'' way to build the compact object masses
 $M_\mathrm{comp.\ obj}$, starting from the total stellar mass and
-removing the amount of mass lost because of all the processes that may
-occur at CC:
+removing the amount of mass lost because of all the processes
+associated with the (possibly failed) explosion:
 
 % \todo{The most common algorithm are from Fryer+12, where the compact
 %   object mass if build from a proto-NS mass adding fallback (bottom-up).}\\
@@ -125,7 +128,7 @@ occur at CC:
 where all masses are in $M_\odot$ units, $M_\mathrm{pre-CC}$ is the
 total mass at the onset of CC, and each term in the parenthesis
 correspond to a potential mass-loss mechanism: $\Delta M_\mathrm{SN}$
-for the SN ejecta, $\Delta M_{\nu, \mathrm{core}}$ the change in
+for the CC ejecta, $\Delta M_{\nu, \mathrm{core}}$ the change in
 gravitational mass of the core due to the neutrino losses,
 $\Delta M_\mathrm{env}$ the loss of the envelope due to the change in
 gravitational mass corresponding to $\Delta M_{\nu, \mathrm{core}}$
