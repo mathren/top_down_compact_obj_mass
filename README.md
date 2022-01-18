@@ -86,7 +86,7 @@ This is the resulting fit:
 ```
 
 ![Figure 1](./src/figures/fit_DM_PPI.png)
-
+<img src="./src/figures/fit_DM_PPI.png">
 
 See `src/ms.pdf` for more information.
 
