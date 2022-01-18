@@ -43,10 +43,7 @@
   prescription, while allowing continuity across the
   core-collapse/pulsational-pair-instability regime. Our remnant mass prescription can be
   extended
-  to other mass-loss mechanisms associated to the final collapse.
-  \\
-
-  \todo{show to Rob Farmer and invite?}
+  to other mass-loss mechanisms associated to the final collapse.\\
 \end{abstract}
 
 \section{Introduction}
@@ -111,6 +108,20 @@ occur at CC:
   \end{equation}
 \end{widetext}
 
+\begin{figure}[ht!]
+    \begin{centering}
+      \includegraphics[width=0.75\linewidth]{fit_DM_PPI.pdf}
+      \caption{Each panel show our fitting formula \Eqref{eq:fit} for
+        the amount of PPI mass-loss as a function of carbon-oxygen
+        core mass at each metallicity $Z$ computed in
+        \cite{farmer:19}. The crosses show the values from Tab.~1
+        \cite{farmer:19}.}
+        % This label tells showyourwork that the script `figures/fit_DM_PPI.py'
+        % generates the PDF included above
+        \label{fig:fit_DM_PPI}
+    \end{centering}
+\end{figure}
+
 where all masses are in $M_\odot$ units, $M_\mathrm{pre-CC}$ is the
 total mass at the onset of CC, and each term in the
 parenthesis correspond to a potential mass-loss mechanism:
@@ -165,20 +176,6 @@ The amount of mass lost in PPI is sensitive to convection
   farmer:20, costa:21, woosley:21, mehta:21}, which overall introduce
 up to $\sim{}20\%$ uncertainties on the maximum BH mass. The accuracy
 of our fit is comparable to these uncertainties.
-
-\begin{figure}[ht!]
-    \begin{centering}
-      \includegraphics[width=0.75\linewidth]{fit_DM_PPI.pdf}
-      \caption{Each panel show our fitting formula \Eqref{eq:fit} for
-        the amount of PPI mass-loss as a function of carbon-oxygen
-        core mass at each metallicity $Z$ computed in
-        \cite{farmer:19}. The crosses show the values from Tab.~1
-        \cite{farmer:19}.}
-        % This label tells showyourwork that the script `figures/fit_DM_PPI.py'
-        % generates the PDF included above
-        \label{fig:fit_DM_PPI}
-    \end{centering}
-\end{figure}
 
 \bibliography{./top_down_comp_obj_mass.bib}
 \end{document}
