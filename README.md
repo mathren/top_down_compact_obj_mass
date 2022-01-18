@@ -85,7 +85,7 @@ This is the resulting fit:
 \Delta M_\mathrm{PPI} = (0.0006\log_{10}(Z)+0.0054)\times (M_\mathrm{CO}-34.8)^3-0.0013\times (M_\mathrm{CO}-34.8)^2
 ```
 
-<img width = "450" src="./src/figures/fit_DM_PPI.png" alt="Figure 1"/>
+![Figure 1](./src/figures/fit_DM_PPI.png)
 
 
 See `src/ms.pdf` for more information.
