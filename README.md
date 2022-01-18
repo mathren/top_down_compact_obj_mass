@@ -64,7 +64,8 @@ quantities for each term here if they are available.
 If one (or more) of these terms have a stochastic component, this can
 naturally produce the scatter in compact object masses expected
 because of the stochasticity in supernova explosions (e.g., [Mandel&
-Mueller 2020](https://ui.adsabs.harvard.edu/abs/2020MNRAS.499.3214M/abstract)).
+Mueller
+2020](https://ui.adsabs.harvard.edu/abs/2020MNRAS.499.3214M/abstract)).
 
 ### Reproducible fit to PPI mass loss
 
@@ -77,6 +78,15 @@ al. 2019](https://ui.adsabs.harvard.edu/abs/2019ApJ...887...53F/abstract)
 are automatically downloaded from
 [zenodo (see datafile1.txt)](https://zenodo.org/record/3346593) and
 cleaned by the script.
+
+This is the resulting fit:
+
+```
+\Delta M_\mathrm{PPI} = (0.0006\log_{10}(Z)+0.0054)\times (M_\mathrm{CO}-34.8)^3-0.0013\times (M_\mathrm{CO}-34.8)^2
+```
+
+<img width = "450" src="src/figures/fit_DM_PPI.png" alt="Figure 1"/>
+
 
 See `src/ms.pdf` for more information.
 
