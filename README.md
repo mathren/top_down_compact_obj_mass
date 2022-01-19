@@ -93,12 +93,12 @@ See `src/ms.pdf` for more information.
 ### Caveat
 
 Recently [Mehta et al. 2021](http://arxiv.org/abs/2105.06366) have
-produced more simulations showing the default nuclear data tables
-adopted in [Farmer et
-al. 2019](https://ui.adsabs.harvard.edu/abs/2019ApJ...887...53F/abstract)
-might be under-resolved. They showed that this can impact the BH
-masses predicted. This introduces an uncertainty in the maximum black
-hole mass below the pair-instability gap of ~20%, which is overall comparable to the
+produced more simulations showing the nuclear data tables
+adopted in stellar evolution calculations (like those in [Farmer et
+al. 2019](https://ui.adsabs.harvard.edu/abs/2019ApJ...887...53F/abstract))
+might be under-resolved. They showed that this can impact the predicted BH
+masses. This may introduce an uncertainty, depending on the source of the nuclur physics data, in the maximum black
+hole mass below the pair-instability gap of ~20%, which is comparable to the
 accuracy of our fit.
 
 
