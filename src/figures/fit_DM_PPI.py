@@ -128,4 +128,5 @@ if __name__ == "__main__":
     # add title for README
     ax1.set_title(fit)
     # save png for readme
-    plt.savefig('fit_DM_PPI.png')
+    # plt.savefig('fit_DM_PPI.png')
+    plt.savefig('fit_DM_PPI.jpeg')

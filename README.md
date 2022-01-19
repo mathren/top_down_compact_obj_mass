@@ -79,16 +79,13 @@ are automatically downloaded from
 [zenodo (see datafile1.txt)](https://zenodo.org/record/3346593) and
 cleaned by the script.
 
-This is the resulting fit:
+This is the resulting fit (see also Fig. 1):
 
 ```
 	\Delta M_\mathrm{PPI} = (0.0006\log_{10}(Z)+0.0054)\times (M_\mathrm{CO}-34.8)^3-0.0013\times (M_\mathrm{CO}-34.8)^2
 ```
 
-![Figure 1](src/figures/fit_DM_PPI.pdf)
-
-
-See `src/ms.pdf` for more information.
+See more details in the main text with the article badge above.
 
 ### Caveat
 
