@@ -7,7 +7,7 @@
 \newcommand{\todo}[1]{{\large $\blacksquare$~\textbf{\color{red}[#1]}}~$\blacksquare$}
 % \usepackage{cuted}
 \usepackage{flushend}
-
+\usepackage{amsmath}
 \graphicspath{{./figures/}}
 
 \begin{document}
@@ -74,7 +74,7 @@ informed by core-collapse (CC) simulations (e.g., \citealt{fryer:12,
   spera:15, mandel:20, couch:20}, see also \citealt{zapartas:21,
   patton:21}) and/or (pulsational) pair instability (PPI) simulations
 (e.g., \citealt{belczynski:16, woosley:17, spera:17, stevenson:19,
-  marchant:19, farmer:19, costa:21}).
+  marchant:19, farmer:19, breivik:20, renzo:20csm, costa:21}).
 
 The most commonly adopted algorithms to obtain compact object masses
 in the CC regime are the ``rapid'' and ``delayed''
@@ -84,12 +84,10 @@ fallback expected in the (possibly failed) explosion. However the
 proto-NS mass and information about the core structure relevant
 to decide the fallback are usually not available in population
 synthesis calculations \citep[e.g.,][]{patton:20}. Instead the total final mass of
-the star is easier to constrain in population synthesis models. % Various algorithms are used for the
-% PPI regime, including \cite{belczynski:16, stevenson:19, marchant:19},
-% and \cite{farmer:19}.
+the star is arguably easier to constrain in population synthesis models.
 
 At the transition between CC and PPI (roughly at carbon-oxygen cores
-of $\sim{}35\,M_\odot$, \citealt{woosley:17, marchant:19, renzo:20csm,
+of $\sim{}35\,M_\odot$, \citealt{woosley:17, marchant:19, farmer:19, renzo:20csm,
   costa:21}), a mismatch between commonly adopted fitting formulae
 exists. These are at least partly caused by differences in the stellar structures used to
 design these algorithms and impair the
@@ -101,6 +99,7 @@ location and amplitude of a putative discontinuity should not be
 governed by a mismatch between the fitting formulae from different stellar
 evolution models.
 
+\vspace*{-20pt}
 \section{Top-down compact object masses}
 
 In contrast with the  ``bottom up'' approach of
@@ -117,27 +116,13 @@ associated with the (possibly failed) explosion:
 %   theorists, it is easier to build the compact object core mass from
 %   the total mass at pre-collapse minus all the SN mass loss term
 %   (top-down):}\\
-
 \begin{widetext}
   \begin{equation}
     \label{eq:mass}
-    M_\mathrm{comp.\ obj} = M_\mathrm{pre-CC} - \left(\Delta M_\mathrm{SN} + \Delta M_{\nu, \mathrm{core}} + \Delta M_\mathrm{env} + \Delta M_\mathrm{PPI} + \cdots \right)
+      M_\mathrm{comp.\ obj} =
+      M_\mathrm{pre-CC} - \left(\Delta M_\mathrm{SN} + \Delta M_{\nu, \mathrm{core}} + \Delta M_\mathrm{env} + \Delta M_\mathrm{PPI} + \cdots \right)
   \end{equation}
 \end{widetext}
-
-\begin{figure}[ht!]
-    \begin{centering}
-      \includegraphics[width=0.75\linewidth]{fit_DM_PPI.pdf}
-      \caption{Each panel shows our fitting formula \Eqref{eq:fit} for
-        the amount of PPI induced mass-loss as a function of carbon-oxygen
-        core mass at each metallicity $Z$ as computed in
-        \cite{farmer:19}. The crosses show the values from Tab.~1
-        \cite{farmer:19}.}
-        % This label tells showyourwork that the script `figures/fit_DM_PPI.py'
-        % generates the PDF included above
-        \label{fig:fit_DM_PPI}
-    \end{centering}
-\end{figure}
 
 where all masses are in $M_\odot$ units, $M_\mathrm{pre-CC}$ is the
 total mass at the onset of CC, and each term in the parenthesis
@@ -156,13 +141,27 @@ large sample of observed SNe). \Eqref{eq:mass} can be further extended by
 adding additional mass-loss mechanisms in the parenthesis (e.g., disk
 winds).
 
-In the CC regime the previous Fryer et al approach can be recovered by setting
+In the CC regime the previous approach from \cite{fryer:12} can be recovered by setting
 $\Delta M_\mathrm{SN} + \Delta M_{\nu, \mathrm{core}} = M_\mathrm{pre-CC} - M_\mathrm{comp.\ obj}^\mathrm{Fryer+12}$,
 where the last term is the compact object mass as predicted by
 \cite{fryer:12} and ignoring the other mass loss terms,
 such as $\Delta M_\mathrm{PPI}$ and $\Delta M_\mathrm{env}$.
 
 \section{New fit for PPI ejecta}
+
+\begin{figure}[bp]
+    \begin{centering}
+      \includegraphics[width=0.75\linewidth]{fit_DM_PPI.pdf}
+      \caption{Each panel shows our fitting formula \Eqref{eq:fit} for
+        the amount of PPI induced mass-loss as a function of carbon-oxygen
+        core mass at each metallicity $Z$ as computed in
+        \cite{farmer:19}. The crosses show the values from Tab.~1
+        \cite{farmer:19}.}
+        % This label tells showyourwork that the script `figures/fit_DM_PPI.py'
+        % generates the PDF included above
+        \label{fig:fit_DM_PPI}
+    \end{centering}
+\end{figure}
 
 The top-down approach of \Eqref{eq:mass}, imposes
 $\Delta M_\mathrm{PPI}=0$ at the edge of the PPI regime,
@@ -177,8 +176,6 @@ might occurr \citep[e.g.,][]{renzo:20csm, powell:21, rahman:22}. Our approach
 fits the mass removed by PPI only, which is what is directly computed
 in \cite{farmer:19}.
 
-\input{fit_DM_PPI.tex} %% generated by src/figures/fit_DM_PPI.py
-
 The dashed curves in each panel of \Figref{fig:fit_DM_PPI} show the
 fit \Eqref{eq:fit} for each metallicity computed in
 \cite{farmer:19}. We neglect the (weak) metallicity dependence of the
@@ -186,16 +183,22 @@ minimum core mass for PPI, and we fit the publicly available data for initial He
 masses between $38-60\,M_\odot$.  We emphasize that \cite{farmer:19}
 only simulated helium cores. In the case of a star with a H-rich envelope which is still
 present at the onset of the pulsations and if it is both extended and red, it can be
-easily removed by the first pulse \citep[][]{woosley:17,renzo:20csm}. Thus the H-rich mass should be added to the
+easily removed by the first pulse
+\citep[][]{woosley:17,renzo:20csm}. Thus the H-rich mass of red supergiants should be added to the
 $\Delta M_\mathrm{PPI}$ provided here. It is unclear what occurs in
-cases when the envelope is compact and blue \cite{dicarlo:19, renzo:20merger, costa:21}.
+cases when the envelope is compact and blue \citep[e.g.,][]{dicarlo:19, renzo:20merger, costa:21}.
+
+
+\input{fit_DM_PPI.tex} %% generated by src/figures/fit_DM_PPI.py
+
 
 The amount of mass lost in PPI is sensitive to convection inside the star
 \citep{renzo:20conv} and the assumed nuclear reaction rates \citep{farmer:19,
   farmer:20, costa:21, woosley:21, mehta:21}, which can introduce
   uncertainties up to $\sim{}20\%$ on the maximum BH mass. The accuracy
 of our fit is comparable to these uncertainties.
-\vspace*{-20pt}
+
+\vspace*{10pt}
 \section*{Acknowledgements}
 LvS acknowledges partial financial support from the  National Science Foundation under Grant No. (NSF grant number 2009131),
 the Netherlands Organisation for Scientific Research (NWO) as part of the Vidi research program BinWaves with project number 639.042.728
