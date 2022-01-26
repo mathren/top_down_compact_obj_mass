@@ -20,8 +20,10 @@
 
 # Pair-instability mass loss for top-down compact object masses calculations
 
-Source and code associated to the research note [arXiv](link) created
-with [showyourwork](https://github.com/rodluger/showyourwork).
+Source and code associated to the research note
+[arXiv:2201.10519](https://arxiv.org/abs/2201.10519) to appear in
+RNAAS, created with
+[showyourwork](https://github.com/rodluger/showyourwork).
 
 
 Click on the rightmost badge at the top to take you to the compiled
