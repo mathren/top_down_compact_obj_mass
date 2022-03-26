@@ -96,7 +96,7 @@ produced more simulations showing the nuclear data tables
 adopted in stellar evolution calculations (like those in [Farmer et
 al. 2019](https://ui.adsabs.harvard.edu/abs/2019ApJ...887...53F/abstract))
 might be under-resolved. They showed that this can impact the predicted BH
-masses. This may introduce an uncertainty, depending on the source of the nuclur physics data, in the maximum black
+masses. This may introduce an uncertainty, depending on the source of the nuclear physics data, in the maximum black
 hole mass below the pair-instability gap of ~20%, which is comparable to the
 accuracy of our fit.
 
