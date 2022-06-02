@@ -1,0 +1,12 @@
+version: 0.3.0.dev8
+
+ms_name: top_down_DM_PPI
+
+dependencies:
+  src/scripts/fit_DM_PPI.py:
+    - src/data/datafile1.txt
+
+datasets:
+  10.5281/zenodo.3346593:
+    contents:
+      datafile1.txt: src/data/datafile1.txt

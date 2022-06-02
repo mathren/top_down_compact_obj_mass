@@ -11,6 +11,9 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 
+# showyourwork paths
+import paths
+
 
 def linear(x, a, b):
     return a * x + b
@@ -48,7 +51,7 @@ def get_select_datafile_range(datafile):
 
 if __name__ == "__main__":
     # this gets downloaded from zenodo by showyourwork
-    datafile = "../data/datafile1.txt"
+    datafile = paths.data / "datafile1.txt"
     src, col = get_select_datafile_range(datafile)
     # create figure
     fig = plt.figure(figsize=(12, 20))
@@ -89,7 +92,7 @@ if __name__ == "__main__":
     )
     # --------------------------------------------------------------------------------------
     # make tex for paper
-    outfile = "../fit_DM_PPI.tex"
+    outfile = paths.output / "fit_DM_PPI.tex"
     with open(outfile,'w') as f:
         f.writelines(r"\begin{widetext}"+"\n")
         f.writelines(r"\begin{equation}"+"\n")
@@ -124,9 +127,9 @@ if __name__ == "__main__":
     ax4.set_ylabel(r"$\Delta M_\mathrm{PPI} \ [M_\odot]$")
     ax7.set_xlabel(r"$M_\mathrm{CO} \ [M_\odot]$")
     # save pdf without title
-    plt.savefig('fit_DM_PPI.pdf')
+    plt.savefig(paths.figures / 'fit_DM_PPI.pdf')
     # add title for README
     ax1.set_title(fit)
     # save png for readme
     # plt.savefig('fit_DM_PPI.png')
-    plt.savefig('fit_DM_PPI.jpeg')
+    plt.savefig(paths.figures / 'fit_DM_PPI.jpeg')
