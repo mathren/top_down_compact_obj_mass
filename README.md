@@ -4,8 +4,8 @@
 </a>
 <br>
 <br>
-<a href="https://github.com/mathren/top_down_compact_obj_mass/actions/workflows/showyourwork.yml">
-<img src="https://github.com/mathren/top_down_compact_obj_mass/actions/workflows/showyourwork.yml/badge.svg" alt="Article status"/>
+<a href="https://github.com/mathren/top_down_compact_obj_mass/actions/workflows/build.yml">
+<img src="https://github.com/mathren/top_down_compact_obj_mass/actions/workflows/build.yml/badge.svg" alt="Article status"/>
 </a>
 <a href="https://github.com/mathren/top_down_compact_obj_mass/raw/ppisn_fit-pdf/arxiv.tar.gz">
 <img src="https://img.shields.io/badge/article-tarball-blue.svg?style=flat" alt="Article tarball"/>
@@ -24,7 +24,6 @@ Source and code associated to the research note
 [arXiv:2201.10519](https://arxiv.org/abs/2201.10519) to appear in
 RNAAS, created with
 [showyourwork](https://github.com/rodluger/showyourwork).
-
 
 Click on the rightmost badge at the top to take you to the compiled
 article PDF.
@@ -50,7 +49,7 @@ M_\mathrm{comp.\ obj} = M_\mathrm{pre-CC} - \left(\Delta M_\mathrm{SN} + \Delta 
 
 In this way, pre-explosion binary interactions reduce `M_\mathrm{pre-CC}`
 already (and possibly modify the core structure, [Laplace et a. 2021](https://ui.adsabs.harvard.edu/abs/2021A%26A...656A..58L/abstract)), and then each mass loss
-process at core-collapse can be added separately.  This can also be
+process at core-collapse can be added separately. This can also be
 extended to add other mass loss mechanisms at core-collapse
 
 Note that while "building" the compact object mass from the bottom up
@@ -99,7 +98,3 @@ might be under-resolved. They showed that this can impact the predicted BH
 masses. This may introduce an uncertainty, depending on the source of the nuclear physics data, in the maximum black
 hole mass below the pair-instability gap of ~20%, which is comparable to the
 accuracy of our fit.
-
-
-
-
